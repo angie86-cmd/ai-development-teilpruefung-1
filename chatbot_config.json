@@ -1,0 +1,82 @@
+{
+  "_comment": "Configuration file for the cinema ticket booking chatbot. JSON does not support real comments, so documentation is provided through _comment and _description fields.",
+  "bot_name": "CinemaBookingBot",
+  "language": "de",
+  "known_movies": [
+    "Dune",
+    "Barbie",
+    "Inside Out",
+    "Oppenheimer",
+    "Avatar",
+    "Der König der Löwen"
+  ],
+  "intents": {
+    "greeting": {
+      "_description": "Detects simple greetings from the user.",
+      "keywords": [
+        "hallo",
+        "guten tag",
+        "guten morgen",
+        "guten abend",
+        "hi"
+      ],
+      "response": "Hallo! Ich kann Ihnen bei einer Kinoticket-Buchung helfen."
+    },
+    "booking_request": {
+      "_description": "Detects that the user wants to book cinema tickets.",
+      "keywords": [
+        "ticket",
+        "tickets",
+        "kino",
+        "film",
+        "buchen",
+        "buchung",
+        "reservieren",
+        "karte",
+        "karten"
+      ],
+      "response": "Gerne. Ich helfe Ihnen bei der Kinoticket-Buchung."
+    },
+    "confirm_booking": {
+      "_description": "Detects that the user wants to confirm the collected booking data.",
+      "keywords": [
+        "ja",
+        "korrekt",
+        "stimmt",
+        "bestätigen",
+        "bestaetigen",
+        "passt"
+      ],
+      "response": "Vielen Dank. Ihre Kinoticket-Buchung wurde vorgemerkt."
+    },
+    "cancel": {
+      "_description": "Detects that the user wants to cancel the current booking process.",
+      "keywords": [
+        "abbrechen",
+        "stornieren",
+        "beenden",
+        "nein"
+      ],
+      "response": "Die Kinoticket-Buchung wurde abgebrochen."
+    },
+    "help": {
+      "_description": "Detects that the user needs help or asks what the chatbot can do.",
+      "keywords": [
+        "hilfe",
+        "was kannst du",
+        "unterstützung",
+        "unterstuetzung"
+      ],
+      "response": "Ich kann eine einfache Kinoticket-Buchung vorbereiten. Bitte nennen Sie Film, Datum, Uhrzeit und Anzahl der Tickets."
+    }
+  },
+  "prompts": {
+    "_description": "Prompts used by the context manager when booking information is missing.",
+    "ask_movie": "Für welchen Film möchten Sie Tickets buchen?",
+    "ask_date": "Für welches Datum möchten Sie buchen?",
+    "ask_time": "Zu welcher Uhrzeit möchten Sie den Film sehen?",
+    "ask_tickets": "Für wie viele Personen möchten Sie Tickets buchen?",
+    "ask_confirmation": "Soll ich die Buchung bestätigen?"
+  },
+  "fallback_response": "Entschuldigung, ich habe die Eingabe nicht verstanden. Bitte nennen Sie Film, Datum, Uhrzeit oder Anzahl der Tickets."
+}

@@ -1,0 +1,42 @@
+Beispieldialog - AI-basierter Chatbot mit Kontextverwaltung
+
+User: Hallo
+Bot: Hallo! Ich kann Ihnen bei einer Kinoticket-Buchung helfen.
+
+User: Ich möchte Kinotickets buchen.
+Bot: Für welchen Film möchten Sie Tickets buchen?
+
+User: Für Dune
+Bot: Für welches Datum möchten Sie buchen?
+
+User: Morgen
+Bot: Zu welcher Uhrzeit möchten Sie den Film sehen?
+
+User: Um 20 Uhr
+Bot: Für wie viele Personen möchten Sie Tickets buchen?
+
+User: Für 2 Personen
+Bot: Ich habe folgende Buchungsdaten verstanden: Film: Dune, Datum: morgen, Uhrzeit: 20:00, Tickets: 2. Soll ich die Buchung bestätigen?
+
+User: Ja, das passt.
+Bot: Vielen Dank. Ihre Kinoticket-Buchung wurde vorgemerkt. Ich habe folgende Buchungsdaten verstanden: Film: Dune, Datum: morgen, Uhrzeit: 20:00, Tickets: 2.
+
+Erläuterung:
+
+Der Chatbot speichert den Kontext über mehrere Benutzereingaben hinweg.
+
+Nach der ersten Buchungsanfrage fragt der Chatbot gezielt nach fehlenden Informationen:
+
+1. Film
+2. Datum
+3. Uhrzeit
+4. Anzahl der Tickets beziehungsweise Personen
+
+Sobald alle Informationen vorhanden sind, fasst der Chatbot die Buchungsdaten zusammen und fragt nach einer Bestätigung.
+
+Die Konversation zeigt folgende Komponenten:
+
+- Intent Recognition
+- Entity Extraction
+- Kontextverwaltung
+- kontextabhängige Antwortgenerierung
