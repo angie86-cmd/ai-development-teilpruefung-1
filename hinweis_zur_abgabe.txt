@@ -1,0 +1,38 @@
+Hinweis zur Abgabe - Teilprüfung 1
+
+Diese ZIP-Datei enthält die vollständige Abgabe zur Teilprüfung 1 im Modul AI-Development.
+
+Die Lösung zur Aufgabenstellung befindet sich hauptsächlich in der Datei README.md. Dort werden die vier geforderten Schritte der Teilprüfung ausführlich beantwortet:
+
+a) Grundlegende Architektur des Chatbots
+b) Intent-Recognition-Funktion
+c) Entity-Extraktionsfunktion
+d) Kontextverwaltungssystem
+
+Zusätzlich enthält das ZIP-Archiv die Python-Implementierung des Chatbots, die Konfigurationsdatei und einen Beispieldialog.
+
+Enthaltene Dateien:
+
+1. README.md
+   Ausführliche Dokumentation der Lösung, einschließlich Aufgabenstellung, Einleitung, Architektur, Code-Erklärungen, Ausführung, Beispieldialog sowie Reflexion und Fazit.
+
+2. chatbot.py
+   Python-Implementierung des AI-basierten Chatbots für eine Kinoticket-Buchung.
+
+3. chatbot_config.json
+   Konfigurationsdatei mit Intents, Schlüsselwörtern, Standardantworten, Prompts und bekannten Filmen.
+
+4. beispiel_dialog.txt
+   Beispielhafte Konversation zur Demonstration der Kontextverwaltung.
+
+5. requirements.txt
+   Hinweis zu den technischen Voraussetzungen. Für diese Implementierung werden keine externen Python-Pakete benötigt.
+
+6. hinweis_zur_abgabe.txt
+   Diese kurze Übersicht zur Orientierung innerhalb der Abgabe.
+
+GitHub-Repository:
+
+https://github.com/angie86-cmd/ai-development-teilpruefung-1
+
+Das GitHub-Repository enthält die versionierte Projektstruktur und dient der nachvollziehbaren Dokumentation der Umsetzung. Die finale Abgabe erfolgt jedoch über diese ZIP-Datei.
