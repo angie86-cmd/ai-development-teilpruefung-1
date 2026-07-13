@@ -4,6 +4,32 @@ Dieses Projekt enthält eine einfache Python-Implementierung eines AI-basierten 
 
 Der Chatbot ist in der Lage, einfache Konversationen zu führen, Benutzeranfragen anhand von Intents zu erkennen, relevante Entities aus der Eingabe zu extrahieren und den Kontext über mehrere Nachrichten hinweg zu speichern.
 
+## Einleitung
+
+Im Rahmen dieser Teilprüfung wurde ein einfacher AI-basierter Chatbot in Python entwickelt. Der Chatbot demonstriert grundlegende Konzepte der Chatbot-Entwicklung, insbesondere Intent Recognition, Entity-Extraktion und Kontextverwaltung.
+
+Als Anwendungsfall wurde bewusst eine Kinoticket-Buchung gewählt. Der Chatbot unterstützt den Nutzer dabei, eine einfache Buchungsanfrage vorzubereiten. Dafür sammelt er über mehrere Nachrichten hinweg die relevanten Informationen: Film, Datum, Uhrzeit und Anzahl der Tickets beziehungsweise Personen.
+
+Die Projektdateien wurden in einem separaten GitHub-Repository erstellt und versioniert:
+
+```text
+https://github.com/angie86-cmd/ai-development-teilpruefung-1
+```
+
+Das Repository dient der strukturierten Dokumentation der Umsetzung. Durch die Nutzung von Git und GitHub ist nachvollziehbar, welche Dateien erstellt wurden und wie sich die Implementierung entwickelt hat. Dadurch wird die Lösung reproduzierbar, wartbar und transparent dokumentiert.
+
+Die eigentliche Abgabe für die Teilprüfung erfolgt zusätzlich als ZIP-Archiv gemäß den Vorgaben der Aufgabenstellung. Das ZIP-Archiv befindet sich im Ordner `submission/` und enthält ausschließlich erlaubte Dateitypen wie `.md`, `.py`, `.json` und `.txt`.
+
+Die Umsetzung trennt bewusst Dokumentation, Programmlogik, Konfiguration und Beispieldialog:
+
+- `README.md` dokumentiert Architektur, Vorgehensweise und Umsetzung.
+- `chatbot.py` enthält die Python-Implementierung des Chatbots.
+- `chatbot_config.json` enthält Intents, Schlüsselwörter, Standardantworten und Prompts.
+- `beispiel_dialog.txt` zeigt eine beispielhafte Konversation.
+- `requirements.txt` dokumentiert die technischen Voraussetzungen.
+
+Diese Struktur wurde gewählt, um die Lösung übersichtlich und nachvollziehbar zu halten. Gleichzeitig zeigt sie eine saubere Trennung zwischen Konfiguration und Programmlogik, was die Wartbarkeit des Chatbots verbessert.
+
 ## Ziel der Implementierung
 
 Ziel ist die Entwicklung eines einfachen Chatbots, der folgende grundlegende Komponenten enthält:
@@ -22,7 +48,21 @@ Der Chatbot unterstützt eine einfache Kinoticket-Buchung. Dazu sammelt er währ
 
 Sobald alle Informationen vorhanden sind, fasst der Chatbot die Buchungsdaten zusammen und fragt nach einer Bestätigung.
 
-## Dateien
+## Dateien und Repository-Struktur
+
+Die Projektdateien sind im GitHub-Repository `ai-development-teilpruefung-1` versioniert.
+
+**Tabelle 1: Dateien und Zweck im Projekt**
+
+| Datei | Zweck |
+|---|---|
+| `README.md` | Dokumentation der Architektur, Komponenten und Umsetzungsschritte |
+| `chatbot.py` | Python-Implementierung des Chatbots |
+| `chatbot_config.json` | Konfiguration der Intents, Schlüsselwörter, Antworten und Prompts |
+| `beispiel_dialog.txt` | Beispielhafte Konversation zur Demonstration der Kontextverwaltung |
+| `requirements.txt` | Technische Voraussetzungen |
+| `.gitignore` | Ausschluss technischer Hilfsdateien aus der Versionskontrolle |
+| `submission/Angie_Angarita_Soto_Teilprüfung 1.zip` | ZIP-Datei für die Abgabe |
 
 ```text
 ai-development-teilpruefung-1/
@@ -36,11 +76,17 @@ ai-development-teilpruefung-1/
     └── Angie_Angarita_Soto_Teilprüfung 1.zip
 ```
 
+Die Versionskontrolle über GitHub wurde verwendet, um die Entwicklung nachvollziehbar zu dokumentieren. Dadurch kann der aktuelle Stand der Implementierung jederzeit überprüft, geteilt und bei Bedarf weiterentwickelt werden.
+
 ---
 
 # a) Grundlegende Architektur des Chatbots
 
-Die Architektur des Chatbots besteht aus mehreren einfachen, klar getrennten Komponenten.
+## a.1 Architekturüberblick
+
+Die Architektur des Chatbots besteht aus mehreren klar getrennten Komponenten. Ziel dieser Struktur ist es, die Verarbeitungsschritte nachvollziehbar und wartbar zu gestalten.
+
+**Abbildung 1: Gesamtarchitektur des Chatbots**
 
 ```text
 User Input
@@ -58,7 +104,75 @@ Response Generation
 Bot Response
 ```
 
-## 1. Input Processing
+Der Chatbot folgt damit einer einfachen Input-Processing-Output-Pipeline. Die Nutzereingabe wird zuerst vorbereitet, anschließend hinsichtlich Absicht und relevanter Informationen analysiert. Danach wird der Konversationskontext aktualisiert und eine passende Antwort erzeugt.
+
+## a.2 Begründung der gewählten Architektur
+
+Diese Architektur wurde gewählt, weil sie die zentralen Anforderungen der Teilprüfung direkt abbildet:
+
+1. Der Chatbot soll Benutzeranfragen anhand von Intents erkennen.
+2. Der Chatbot soll relevante Entities aus dem Text extrahieren.
+3. Der Chatbot soll Kontext über mehrere Nachrichten hinweg speichern.
+4. Der Chatbot soll kontextabhängige Antworten generieren.
+
+Die Architektur ist bewusst modular aufgebaut. Dadurch kann jede Komponente separat erklärt, getestet und bei Bedarf erweitert werden.
+
+Ein weiterer Grund für diese Architektur ist die Transparenz. Da es sich um eine Teilprüfung handelt, soll nachvollziehbar sein, wie eine Eingabe verarbeitet wird und warum der Chatbot eine bestimmte Antwort gibt. Eine einfache, komponentenbasierte Struktur eignet sich dafür besser als eine schwer nachvollziehbare Black-Box-Lösung.
+
+**Tabelle 2: Komponenten der Chatbot-Architektur**
+
+| Komponente | Aufgabe | Umsetzung im Projekt |
+|---|---|---|
+| Input Processing | Vorbereitung der Nutzereingabe | Normalisierung in Kleinbuchstaben und Entfernen überflüssiger Leerzeichen |
+| Intent Recognition | Erkennung der Nutzerabsicht | Keyword-Mapping aus `chatbot_config.json` |
+| Entity Extraction | Extraktion relevanter Informationen | Reguläre Ausdrücke, Wortlisten und bekannte Filmtitel |
+| Context Management | Speicherung des Konversationszustands | Python-Dictionary `self.context` |
+| Response Generation | Erzeugung passender Antworten | Kombination aus Intent, Entities und Kontext |
+
+## a.3 Zusammenspiel der Komponenten
+
+Die Komponenten arbeiten nicht isoliert, sondern bauen aufeinander auf.
+
+**Abbildung 2: Datenfluss innerhalb des Chatbots**
+
+```text
+Beispielhafte Eingabe:
+"Ich möchte morgen um 20 Uhr Dune für 2 Personen sehen."
+
+1. Input Processing
+   → "ich möchte morgen um 20 uhr dune für 2 personen sehen."
+
+2. Intent Recognition
+   → booking_request oder provide_information
+
+3. Entity Extraction
+   → movie = Dune
+   → date = morgen
+   → time = 20:00
+   → number_of_tickets = 2
+
+4. Context Management
+   → speichert die extrahierten Informationen im Kontext
+
+5. Response Generation
+   → erzeugt eine Zusammenfassung oder fragt nach fehlenden Informationen
+```
+
+Dadurch kann der Chatbot eine mehrstufige Konversation führen. Wenn der Nutzer nicht alle Informationen in einer Nachricht liefert, fragt der Chatbot gezielt nach den fehlenden Angaben.
+
+Beispiel:
+
+```text
+User: Ich möchte Kinotickets buchen.
+Bot: Für welchen Film möchten Sie Tickets buchen?
+
+User: Für Dune
+Bot: Für welches Datum möchten Sie buchen?
+```
+
+Der Chatbot erkennt in diesem Beispiel, dass bereits eine Buchungsabsicht vorliegt und dass der Film inzwischen bekannt ist. Deshalb fragt er als Nächstes nach dem Datum.
+
+## a.4 Input Processing
 
 Die Benutzereingabe wird zunächst vorbereitet. Dazu wird der Text normalisiert:
 
@@ -75,13 +189,13 @@ Beispiel:
 
 Diese Normalisierung erleichtert die weitere Verarbeitung durch Intent Recognition und Entity-Extraktion.
 
-## 2. Intent Recognition
+## a.5 Intent Recognition
 
 Die Intent Recognition erkennt die Absicht des Nutzers. Dazu verwendet der Chatbot ein einfaches Mapping von Schlüsselwörtern zu vordefinierten Intents.
 
 Die Intents und Schlüsselwörter werden in der Datei `chatbot_config.json` gepflegt.
 
-Beispiele für Intents:
+**Tabelle 3: Implementierte Intents**
 
 | Intent | Bedeutung |
 |---|---|
@@ -100,11 +214,13 @@ Beispiel:
 → Intent: booking_request
 ```
 
-## 3. Entity-Extraktion
+## a.6 Entity-Extraktion
 
 Die Entity-Extraktion erkennt konkrete Informationen innerhalb der Benutzereingabe.
 
 In dieser Implementierung werden folgende Entities extrahiert:
+
+**Tabelle 4: Implementierte Entities**
 
 | Entity | Beispiel |
 |---|---|
@@ -124,7 +240,7 @@ Beispiele:
 
 Die Extraktion erfolgt mit einfachen regulären Ausdrücken, kontrollierten Wortlisten und einer kleinen Liste bekannter Filme.
 
-## 4. Context Management
+## a.7 Context Management
 
 Die Kontextverwaltung speichert den aktuellen Zustand der Konversation.
 
@@ -147,19 +263,7 @@ Der Kontext wird in einem Python-Dictionary gespeichert:
 
 Dadurch kann der Chatbot über mehrere Nachrichten hinweg eine zusammenhängende Konversation führen.
 
-Beispiel:
-
-```text
-User: Ich möchte Kinotickets buchen.
-Bot: Für welchen Film möchten Sie Tickets buchen?
-
-User: Für Dune
-Bot: Für welches Datum möchten Sie buchen?
-```
-
-Der Chatbot weiß in diesem Beispiel, dass der Film bereits vorhanden ist und als Nächstes das Datum fehlt.
-
-## 5. Response Generation
+## a.8 Response Generation
 
 Die Antwortgenerierung kombiniert:
 
@@ -177,19 +281,47 @@ Beispiel:
 Ich habe folgende Buchungsdaten verstanden: Film: Dune, Datum: morgen, Uhrzeit: 20:00, Tickets: 2. Soll ich die Buchung bestätigen?
 ```
 
-## Zusammenspiel der Komponenten
+## a.9 Verwendung einer JSON-Konfigurationsdatei
 
-Die Komponenten arbeiten wie folgt zusammen:
+Die Datei `chatbot_config.json` wurde verwendet, um Konfiguration und Programmlogik voneinander zu trennen.
 
-1. Der Nutzer schreibt eine Nachricht.
-2. Die Eingabe wird normalisiert.
-3. Die Intent Recognition erkennt die Absicht des Nutzers.
-4. Die Entity-Extraktion sucht nach Film, Datum, Uhrzeit und Ticketanzahl.
-5. Die Kontextverwaltung speichert neue Informationen.
-6. Die Antwortgenerierung entscheidet, ob eine Rückfrage, eine Bestätigung oder eine Fallback-Antwort notwendig ist.
-7. Der Bot gibt eine kontextabhängige Antwort aus.
+Diese Entscheidung hat mehrere Vorteile:
 
-Dadurch entsteht eine einfache, aber kohärente Konversation.
+1. Die Intents, Schlüsselwörter und Standardantworten können angepasst werden, ohne den Python-Code zu verändern.
+2. Die Programmlogik in `chatbot.py` bleibt übersichtlicher.
+3. Die Konfiguration ist leichter nachvollziehbar und wartbar.
+4. Neue Schlüsselwörter oder Filme können ergänzt werden, ohne die Kernlogik des Chatbots umzuschreiben.
+5. Die Lösung zeigt eine klare Trennung zwischen Daten, Konfiguration und Verarbeitung.
+
+**Tabelle 5: Zweck der JSON-Konfiguration**
+
+| Bereich in `chatbot_config.json` | Zweck |
+|---|---|
+| `known_movies` | Liste bekannter Filme für die Entity-Extraktion |
+| `intents` | Definition der Intents, Schlüsselwörter und Standardantworten |
+| `prompts` | Rückfragen für fehlende Buchungsinformationen |
+| `fallback_response` | Standardantwort bei nicht verstandener Eingabe |
+
+Beispiel:
+
+```json
+{
+  "booking_request": {
+    "keywords": [
+      "ticket",
+      "tickets",
+      "kino",
+      "film",
+      "buchen",
+      "buchung",
+      "reservieren"
+    ],
+    "response": "Gerne. Ich helfe Ihnen bei der Kinoticket-Buchung."
+  }
+}
+```
+
+Die JSON-Datei ist damit kein zwingend notwendiger Bestandteil für einen sehr kleinen Chatbot, verbessert aber die Struktur und Wartbarkeit der Lösung deutlich. Aus diesem Grund wurde sie in dieser Implementierung verwendet.
 
 ---
 
@@ -229,7 +361,7 @@ User: Ich möchte Kinotickets buchen.
 Erkannter Intent: booking_request
 ```
 
-Die Implementierung ist bewusst einfach und transparent gehalten.
+Die Implementierung ist bewusst einfach und transparent gehalten. Sie erfüllt damit die Anforderung, eine einfache Intent-Recognition-Funktion auf Basis vordefinierter Intents und eines Schlüsselwort-Mappings zu verwenden.
 
 Wenn kein Keyword gefunden wird, prüft der Chatbot zusätzlich, ob Entities wie Film, Datum, Uhrzeit oder Ticketanzahl erkannt wurden. In diesem Fall wird der Intent `provide_information` verwendet.
 
@@ -425,7 +557,7 @@ Wenn alle Informationen vorhanden sind, fasst der Bot die Buchung zusammen:
 Ich habe folgende Buchungsdaten verstanden: Film: Dune, Datum: morgen, Uhrzeit: 20:00, Tickets: 2. Soll ich die Buchung bestätigen?
 ```
 
-Die Kontextverwaltung ermöglicht dadurch eine einfache mehrstufige Konversation.
+Die Kontextverwaltung ermöglicht dadurch eine einfache mehrstufige Konversation. Der Chatbot behandelt die Nachrichten nicht isoliert, sondern nutzt die bereits gespeicherten Informationen, um sinnvolle Rückfragen und Antworten zu generieren.
 
 ---
 
@@ -488,6 +620,30 @@ Bot: Ich habe folgende Buchungsdaten verstanden: Film: Dune, Datum: morgen, Uhrz
 User: Ja, das passt.
 Bot: Vielen Dank. Ihre Kinoticket-Buchung wurde vorgemerkt. Ich habe folgende Buchungsdaten verstanden: Film: Dune, Datum: morgen, Uhrzeit: 20:00, Tickets: 2.
 ```
+
+---
+
+# Hinweis zur Abgabe
+
+Die Abgabe erfolgt als ZIP-Archiv mit dem Namen:
+
+```text
+Angie_Angarita_Soto_Teilprüfung 1.zip
+```
+
+Das Archiv befindet sich im Ordner `submission/`.
+
+Es enthält die folgenden Dateien:
+
+```text
+README.md
+chatbot.py
+chatbot_config.json
+beispiel_dialog.txt
+requirements.txt
+```
+
+Die enthaltenen Dateitypen entsprechen den Vorgaben der Teilprüfung: `.md`, `.py`, `.json` und `.txt`.
 
 ---
 
