@@ -36,7 +36,7 @@ https://github.com/angie86-cmd/ai-development-teilpruefung-1
 
 Das Repository dient der strukturierten Dokumentation der Umsetzung. Durch die Nutzung von Git und GitHub ist nachvollziehbar, welche Dateien erstellt wurden und wie sich die Implementierung entwickelt hat. Dadurch wird die Lösung reproduzierbar, wartbar und transparent dokumentiert.
 
-Die eigentliche Abgabe erfolgt zusätzlich als ZIP-Archiv gemäß den Vorgaben. Das ZIP-Archiv befindet sich im Ordner `submission/` und enthält ausschließlich erlaubte Dateitypen wie `.md`, `.py`, `.json` und `.txt`.
+Die eigentliche Abgabe erfolgt zusätzlich als ZIP-Archiv gemäß den Abgabevorgaben. Das ZIP-Archiv befindet sich im Ordner `submission/` und enthält ausschließlich erlaubte Dateitypen wie `.md`, `.py`, `.json` und `.txt`.
 
 Die Umsetzung trennt bewusst Dokumentation, Programmlogik, Konfiguration und Beispieldialog:
 
@@ -1719,4 +1719,4 @@ Aus heutiger Sicht zeigt diese Implementierung eine klassische und didaktisch gu
 - Guardrails
 - Evaluation und Monitoring
 
-Zusammenfassend zeigt die Teilprüfung, dass klassische Chatbot-Konzepte weiterhin eine wichtige Grundlage für das Verständnis dialogbasierter KI-Systeme bilden. Auch moderne LLM- und Agentensysteme benötigen weiterhin Konzepte wie Absichtserkennung, Kontext, strukturierte Eingaben, Antwortlogik und Qualitätskontrolle. Die praktische Umsetzung mit Python, JSON, Git und GitHub verdeutlicht außerdem, wie solche KI-Artefakte strukturiert, versioniert und reproduzierbar dokumentiert werden können.
+Zusammenfassend zeigt die Umsetzung, dass klassische Chatbot-Konzepte weiterhin eine wichtige Grundlage für das Verständnis dialogbasierter KI-Systeme bilden. Auch moderne LLM- und Agentensysteme benötigen weiterhin Konzepte wie Absichtserkennung, Kontext, strukturierte Eingaben, Antwortlogik und Qualitätskontrolle. Die praktische Umsetzung mit Python, JSON, Git und GitHub verdeutlicht außerdem, wie solche KI-Artefakte strukturiert, versioniert und reproduzierbar dokumentiert werden können.
