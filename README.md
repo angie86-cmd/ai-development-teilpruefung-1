@@ -1698,19 +1698,25 @@ Die enthaltenen Dateitypen entsprechen den Vorgaben: `.md`, `.py`, `.json` und `
 
 ---
 
-# Grenzen der Implementierung
+# Reflexion und Fazit
 
-Diese Implementierung verwendet bewusst eine einfache keyword-basierte Intent Recognition und regex-basierte Entity-Extraktion.
+Die Umsetzung des AI-basierten Chatbots zeigt, wie die Grundbausteine eines einfachen dialogbasierten Systems in Python nachvollziehbar implementiert werden können. Besonders deutlich wurde dabei, dass ein Chatbot nicht nur aus einzelnen Antworten besteht, sondern aus mehreren zusammenwirkenden Komponenten: Intent Recognition, Entity-Extraktion, Kontextverwaltung und Antwortgenerierung.
 
-Die Lösung ist für eine transparente und didaktische Demonstration geeignet, aber nicht als produktives Chatbot-System gedacht.
+Der gewählte Anwendungsfall der Kinoticket-Buchung war für diese Umsetzung gut geeignet, weil er einen klaren, mehrstufigen Dialogablauf besitzt. Der Nutzer muss mehrere Informationen angeben, zum Beispiel Film, Datum, Uhrzeit und Anzahl der Tickets. Dadurch konnte gezeigt werden, warum Kontextverwaltung wichtig ist. Ohne gespeicherten Kontext müsste der Nutzer alle Informationen in jeder Nachricht erneut angeben. Mit Kontextverwaltung kann der Chatbot bereits genannte Informationen behalten und gezielt nach fehlenden Angaben fragen.
 
-Für produktive Systeme könnten moderne Verfahren ergänzt werden, zum Beispiel:
+Die einfache keyword-basierte Intent Recognition erfüllt in diesem Projekt den Zweck, grundlegende Absichten des Nutzers transparent zu erkennen. Gleichzeitig wurde deutlich, dass dieser Ansatz Grenzen hat. Er funktioniert gut, solange Nutzereingaben vorhersehbar sind und die relevanten Schlüsselwörter enthalten. Bei freieren Formulierungen, Tippfehlern oder komplexeren Anfragen wäre eine rein keyword-basierte Lösung jedoch eingeschränkt.
+
+Auch die Entity-Extraktion wurde bewusst einfach umgesetzt. Reguläre Ausdrücke und kontrollierte Wortlisten eignen sich gut, um klar erkennbare Angaben wie `20 Uhr`, `morgen` oder `2 Personen` zu extrahieren. Für komplexere Sprache, unbekannte Filmtitel oder mehrdeutige Aussagen wäre eine robustere Sprachverarbeitung erforderlich.
+
+Die Trennung von Programmlogik und Konfiguration über `chatbot_config.json` hat sich als sinnvoll erwiesen. Intents, Schlüsselwörter, Prompts und bekannte Filme können dadurch angepasst werden, ohne den Python-Code selbst zu verändern. Diese Struktur verbessert die Wartbarkeit und macht die Lösung übersichtlicher.
+
+Aus heutiger Sicht zeigt diese Implementierung eine klassische und didaktisch gut nachvollziehbare Chatbot-Architektur. Für produktive Systeme würden jedoch moderne Verfahren ergänzt werden, zum Beispiel:
 
 - semantisches Routing mit Embeddings
 - LLM-basierte Intent-Erkennung
 - Tool Calling
-- RAG für Wissenszugriff
+- Retrieval-Augmented Generation für Wissenszugriff
 - Guardrails
 - Evaluation und Monitoring
 
-Die vorliegende Lösung erfüllt den Zweck, die grundlegenden Komponenten eines AI-basierten Chatbots verständlich und nachvollziehbar zu demonstrieren.
+Zusammenfassend zeigt die Teilprüfung, dass klassische Chatbot-Konzepte weiterhin eine wichtige Grundlage für das Verständnis dialogbasierter KI-Systeme bilden. Auch moderne LLM- und Agentensysteme benötigen weiterhin Konzepte wie Absichtserkennung, Kontext, strukturierte Eingaben, Antwortlogik und Qualitätskontrolle. Die praktische Umsetzung mit Python, JSON, Git und GitHub verdeutlicht außerdem, wie solche KI-Artefakte strukturiert, versioniert und reproduzierbar dokumentiert werden können.
